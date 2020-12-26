@@ -1,0 +1,14 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+.idea/
+
+# rspec failure tracking
+.rspec_status
+/views/analytics_service_theme/node_modules/
+/views/analytics_service_theme/npm-debug.log

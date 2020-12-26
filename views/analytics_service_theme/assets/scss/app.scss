@@ -1,0 +1,63 @@
+@import "mdc-theme";
+
+@import "components/avatar";
+@import "components/badge";
+@import "components/button";
+@import "components/card";
+@import "components/chip";
+@import "components/drawer";
+@import "components/grid";
+@import "components/list";
+@import "components/stepper";
+
+@import "@material/card/mdc-card";
+@import "@material/checkbox/mdc-checkbox";
+@import "@material/dialog/mdc-dialog";
+@import "@material/fab/mdc-fab";
+@import "@material/form-field/mdc-form-field";
+@import "@material/icon-toggle/mdc-icon-toggle";
+@import "@material/linear-progress/mdc-linear-progress";
+@import "@material/menu-surface/mdc-menu-surface";
+@import "@material/menu/mdc-menu";
+@import "@material/notched-outline/mdc-notched-outline";
+@import "@material/radio/mdc-radio";
+@import "@material/select/mdc-select";
+@import "@material/slider/mdc-slider";
+@import "@material/snackbar/mdc-snackbar";
+@import "@material/switch/mdc-switch";
+@import "@material/tab-bar/mdc-tab-bar";
+@import "@material/tab-indicator/mdc-tab-indicator";
+@import "@material/tab-scroller/mdc-tab-scroller";
+@import "@material/tab/mdc-tab";
+@import "@material/textfield/mdc-text-field";
+@import "@material/theme/mixins";
+@import "@material/typography/mdc-typography";
+
+@import "v-theme";
+@import "breadcrumbs";
+@import "behaviors/fixed-nav-elements";
+
+
+.mdc-fab {
+  background-color: palette(primary6);
+  color: white;
+}
+
+:not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item--activated::before,
+:not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item--activated::after {
+  background-color: palette(primary2);
+}
+
+.mdc-top-app-bar {
+  background-color: palette(primary5);
+  color: white;
+  z-index: 10;
+}
+
+#top-nav-logout-menu {
+  z-index: 15;
+}
+
+.v-icon__primary {
+  color: palette(primary5);
+}

@@ -1,0 +1,60 @@
+#!/usr/bin/env ruby
+require 'erb'
+require 'json'
+
+module TemplateLoader
+  def get_template(template_name)
+    erb_file = File.expand_path("./templates/#{template_name}.erb", File.dirname(__FILE__))
+    File.read(erb_file)
+  end
+  def save(file)
+    File.open(file, "w+") do |f|
+      f.write(render)
+    end
+  end
+  def render()
+    ERB.new(get_template(@template)).result(binding).gsub(/^( )*\n/, '')
+  end
+end
+
+class ThemeYML
+  include TemplateLoader
+  include ERB::Util
+  attr_accessor :palette, :palette_map
+
+  def initialize(palette, palette_map)
+    @palette = palette
+    @palette_map = palette_map
+    @template = 'theme.yml'
+  end
+end
+
+class PaletteSCSS
+  include TemplateLoader
+  include ERB::Util
+  attr_accessor :palette, :palette_map
+
+  def initialize(palette, palette_map)
+    @palette = palette
+    @palette_map = palette_map
+    @template = 'palette.scss'
+  end
+end
+
+palette = File.read("palette.json")
+palette_map = File.read("palette-map.json")
+
+# parse and convert JSON to Ruby
+palette_json = JSON.parse(palette)
+palette_map_json = JSON.parse(palette_map)
+
+puts 'Generating palette.yml'
+theme = ThemeYML.new(palette_json, palette_map_json)
+theme.save(File.join('lib/voom/presenters/plugins/palette.yml'))
+
+puts 'Generating palette.scss'
+palette_scss = PaletteSCSS.new(palette_json, palette_map_json)
+palette_scss.save(File.join('views/analytics_service_theme/assets/scss/palette.scss'))
+
+puts 'Building public/bundle.css'
+`cd views/analytics_service_theme;npm run start`

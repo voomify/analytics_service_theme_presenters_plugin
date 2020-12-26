@@ -1,0 +1,23 @@
+// THIS FILE IS GENERATED - TO EDIT modify platte.json and run ./build_theme
+$palette-colors: (
+<% @palette_map.each do |section,prefix| %>
+  <% @palette.keys.select { |k|   k =~  /#{prefix}-\d/ }.each_with_index do |key, index| %>
+    <%= "#{section}#{index+1}:" %> <%= @palette[key] %>,
+  <% end  %>
+<% end %>
+);
+
+
+@function palette($color) {
+  @return map-get($palette-colors, $color);
+}
+
+@each $name, $color in $palette-colors {
+  .v-color__#{$name} {
+    color: $color !important;
+  }
+
+  .v-background-color__#{$name} {
+    background-color: $color !important;
+  }
+}

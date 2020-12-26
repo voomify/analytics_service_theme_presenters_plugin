@@ -1,0 +1,76 @@
+# THIS FILE IS GENERATED - TO EDIT modify platte.json and run ./build_theme
+colors:
+  <% @palette_map.each do |section,prefix| %>
+    <% @palette.keys.select { |k|   k =~  /#{prefix}-\d/ }.reverse.each_with_index do |key, index| %>
+    <%= "#{section}#{index+1}:" %> <%= @palette[key] %>
+    <% end  %>
+  <% end %>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

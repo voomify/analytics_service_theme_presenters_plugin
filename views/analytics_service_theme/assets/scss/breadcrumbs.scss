@@ -1,0 +1,24 @@
+$breadcrumbs-height: 40px;
+
+#breadcrumbs {
+  color: white;
+  background-color: palette(neutral7);
+  padding: 2px 0 2px 16px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 0px 3px 0px rgba(0, 0, 0, 0.12);
+  max-height: $breadcrumbs-height;
+
+  i {
+    font-size: 1.125rem;
+  }
+
+  .mdc-button {
+    color: white;
+  }
+}
+
+#chevron {
+  color: white;
+  font-size: 1.0rem;
+}

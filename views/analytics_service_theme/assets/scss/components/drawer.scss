@@ -1,0 +1,60 @@
+@import 'node_modules/@material/layout-grid/variables';
+@import 'node_modules/@material/layout-grid/mixins';
+@import "@material/drawer/mdc-drawer";
+@import '../media';
+
+.mdc-drawer--modal {
+  --v-drawer-active:yes;
+  @include lg {
+    --v-drawer-active:no;
+  }
+}
+
+.mdc-drawer--dismissible.mdc-drawer--open {
+  display: none;
+  width: 0;
+  --v-drawer-active:no;
+  @include lg {
+    --v-drawer-active:yes;
+    display: flex;
+    width: $mdc-drawer-width;
+  }
+}
+
+.mdc-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content {
+  margin-left: 0;
+  margin-right: 0;
+  @include lg {
+    margin-left: $mdc-drawer-width;
+    margin-right: 0;
+   }
+  > .mdc-top-app-bar.mdc-top-app-bar--fixed {
+    @include lg {
+      width: calc(100% - #{$mdc-drawer-width});
+    }
+  }
+}
+
+#admin-side-nav {
+  .mdc-drawer__header {
+    min-height: 79px;
+    background-image: url("../images/evvnt_logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    margin: 5px 0px 0px 0px;
+    h3 {
+      display: none;
+    }
+  }
+}
+
+.mdc-drawer__content > .mdc-list {
+  h6.mdc-list-group__subheader {
+    margin-bottom: 8px;
+    color: palette(primary10);
+  }
+  .mdc-list-item {
+    margin: 0px 8px;
+  }
+}
